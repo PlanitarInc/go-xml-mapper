@@ -2,6 +2,12 @@ A library for modifying XML documents.
 
 [![GoDoc](http://godoc.org/github.com/PlanitarInc/go-xmlproc?status.svg)](http://godoc.org/github.com/PlanitarInc/go-xmlproc)
 
+# Why?
+
+2 main reasons:
+  - I needed to modify slightly XML documents and did not find any simple and nice golang library to do that
+  - I needed the library to be friendly to XML namespaces
+
 # Examples
 
 Changing attribute value:
