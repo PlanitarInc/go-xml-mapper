@@ -1,23 +1,23 @@
-// Package xmlprocessor is intended to process and modify XML files.
-package xmlprocessor
+// Package xmlproc is intended to process and modify XML files.
+package xmlproc
 
 import (
 	"encoding/xml"
 	"io"
 
-	"github.com/PlanitarInc/go-xml-processor/mappers"
+	"github.com/PlanitarInc/go-xmlproc/mappers"
 )
 
 // Processor type encapsulates the main logic of processing an XML file.
 type Processor struct {
-	mappers []Mapper
+	Mappers []Mapper
 }
 
 // Create a Processor with predefined set of mappers:
 // mapper.Pruner and mapper.NSNormalizer.
 func NewDefaultProcessor() *Processor {
 	return &Processor{
-		mappers: []Mapper{
+		Mappers: []Mapper{
 			&mappers.Pruner{},
 			&mappers.NSNormalizer{},
 		},
@@ -29,15 +29,15 @@ func NewDefaultProcessor() *Processor {
 // if the mapper is already present in the list,
 // it would be appended anyway.
 func (p *Processor) AddMapper(m Mapper) {
-	p.mappers = append(p.mappers, m)
+	p.Mappers = append(p.Mappers, m)
 }
 
 // RemMapper removes a first occurence of a given mapper
 // in processor's map list.
 func (p *Processor) RemMapper(m Mapper) {
-	for i := range p.mappers {
-		if p.mappers[i] == m {
-			p.mappers = append(p.mappers[:i], p.mappers[i+1:]...)
+	for i := range p.Mappers {
+		if p.Mappers[i] == m {
+			p.Mappers = append(p.Mappers[:i], p.Mappers[i+1:]...)
 		}
 	}
 }
@@ -65,7 +65,7 @@ func (p Processor) Process(e *xml.Encoder, d *xml.Decoder) error {
 			return err
 		}
 
-		for _, m := range p.mappers {
+		for _, m := range p.Mappers {
 			if token, err := m.Map(t); err != nil {
 				return err
 			} else if t == nil {

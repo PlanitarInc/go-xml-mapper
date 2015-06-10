@@ -1,4 +1,4 @@
-package xmlprocessor
+package xmlproc
 
 import "encoding/xml"
 
