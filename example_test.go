@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func Example1Issue6800() {
+func Example_1Issue6800() {
 	// https://github.com/golang/go/issues/6800#issuecomment-83049402
 	example := `<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"></w:document>`
 
@@ -16,7 +16,7 @@ func Example1Issue6800() {
 	// <w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"></w:document>
 }
 
-func Example2Issue6800() {
+func Example_2Issue6800() {
 	// https://github.com/golang/go/issues/6800#issuecomment-82772038
 	example := `<taxii_11:Discovery_Response 
     xmlns:taxii="http://taxii.mitre.org/messages/taxii_xml_binding-1"
@@ -38,7 +38,7 @@ func Example2Issue6800() {
 	// <taxii_11:Discovery_Response xmlns:taxii="http://taxii.mitre.org/messages/taxii_xml_binding-1" xmlns:taxii_11="http://taxii.mitre.org/messages/taxii_xml_binding-1.1" xmlns:tdq="http://taxii.mitre.org/query/taxii_default_query-1" message_id="32898" in_response_to="1"></taxii_11:Discovery_Response>
 }
 
-func Example3Issue6800() {
+func Example_3Issue6800() {
 	// https://github.com/golang/go/issues/6800#issuecomment-76655588
 	example := `
 <stix:STIX_Package
